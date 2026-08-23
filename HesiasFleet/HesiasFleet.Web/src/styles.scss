@@ -1,0 +1,128 @@
+@use '@angular/material' as mat;
+
+/* ==========================================================================
+   HESIAS FLEET — Theme global
+   Identite "atelier / flotte" : charbon, jaune signalisation, creme.
+   Titres en Barlow Condensed, corps en Barlow.
+   ========================================================================== */
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$yellow-palette,
+      tertiary: mat.$orange-palette
+    ),
+    typography: Barlow,
+    density: 0
+  ));
+
+  --hf-charcoal: #1c1b18;
+  --hf-charcoal-2: #26251f;
+  --hf-amber: #f2b705;
+  --hf-amber-dark: #c98a00;
+  --hf-cream: #f6f4ee;
+  --hf-ink: #1f1e1a;
+  --hf-muted: #6f6a5d;
+
+  --mat-sys-primary: #1c1b18;
+  --mat-sys-on-primary: #f6f4ee;
+  --mat-sys-surface: #f6f4ee;
+  --mat-sys-on-surface: #1f1e1a;
+  --mat-sys-surface-container: #ffffff;
+  --mat-sys-surface-container-high: #efece3;
+  --mat-sys-surface-container-highest: #e7e3d8;
+  --mat-sys-outline: #ddd7c8;
+  --mat-sys-outline-variant: #e7e3d8;
+  --mat-sys-error: #b3261e;
+  --mat-sys-secondary-container: #fbe6b0;
+  --mat-sys-on-secondary-container: #1f1e1a;
+}
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font-family: 'Barlow', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1;
+}
+h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.page { padding: 32px 40px; max-width: 1240px; margin: 0 auto; }
+.page-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px; gap: 16px;
+}
+.spacer { flex: 1 1 auto; }
+.full-width { width: 100%; }
+.row { display: flex; gap: 16px; flex-wrap: wrap; }
+.row > * { flex: 1 1 200px; }
+.empty-state { padding: 48px; text-align: center; color: var(--hf-muted); }
+
+.hazard-stripe {
+  height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--hf-amber) 0 22px, var(--hf-charcoal) 22px 44px);
+}
+
+::ng-deep .mat-mdc-card {
+  border: 1px solid var(--mat-sys-outline) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 2px rgba(28,27,24,0.05) !important;
+  background: var(--mat-sys-surface-container) !important;
+}
+::ng-deep .mat-mdc-card-title {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 20px !important;
+}
+
+table { width: 100%; }
+::ng-deep .mat-mdc-table { background: transparent !important; }
+::ng-deep .mat-mdc-header-row { background: var(--mat-sys-surface-container-high) !important; }
+::ng-deep .mat-mdc-header-cell {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 13px !important;
+  color: var(--hf-muted) !important;
+}
+::ng-deep .mat-mdc-row:hover { background: var(--mat-sys-surface-container-high) !important; }
+::ng-deep .mat-mdc-cell { font-size: 15px !important; }
+
+::ng-deep .mat-mdc-unelevated-button.mat-primary,
+::ng-deep .mat-mdc-raised-button.mat-primary {
+  background: var(--hf-amber) !important;
+  color: var(--hf-charcoal) !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 6px !important;
+}
+
+::ng-deep .mat-mdc-form-field { --mat-sys-primary: var(--hf-amber-dark); }
+
+a { color: var(--hf-amber-dark); text-decoration: none; }
+a:hover { color: var(--hf-charcoal); text-decoration: underline; }
+
+.overdue { color: var(--mat-sys-error); font-weight: 600; }

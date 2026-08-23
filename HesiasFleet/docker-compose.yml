@@ -1,0 +1,61 @@
+services:
+  # --- Base de données PostgreSQL ---------------------------------------
+  db:
+    image: postgres:16
+    container_name: hesiasfleet-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-hesias}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-hesias_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-hesiasfleet}
+    ports:
+      - "5432:5432"
+    volumes:
+      - hesias_pgdata:/var/lib/postgresql/data
+      # Scripts joués automatiquement au PREMIER démarrage (volume vide) :
+      # 01-schema.sql crée le schéma, 02-seed.sql insère le jeu de données.
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-hesias} -d ${POSTGRES_DB:-hesiasfleet}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # --- API ASP.NET Core --------------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: HesiasFleet.API/Dockerfile
+    container_name: hesiasfleet-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Development : active Swagger et désactive la redirection HTTPS
+      # (pas de certificat dans le conteneur).
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      # Host=db : nom du service Compose, résolu par le DNS interne Docker.
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=${POSTGRES_DB:-hesiasfleet};Username=${POSTGRES_USER:-hesias};Password=${POSTGRES_PASSWORD:-hesias_dev_password}"
+      Jwt__Key: ${JWT_KEY:-CHANGE_ME_super_cle_secrete_de_32_caracteres_minimum_pour_signer}
+      Jwt__Issuer: HesiasFleet
+      Jwt__Audience: HesiasFleetClients
+      Jwt__ExpireMinutes: "120"
+    ports:
+      # Utile pour Swagger (http://localhost:8080/swagger) et pour l'app mobile.
+      - "8080:8080"
+
+  # --- Front Angular servi par nginx -------------------------------------
+  web:
+    build:
+      context: ./HesiasFleet.Web
+    container_name: hesiasfleet-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "4200:80"
+
+volumes:
+  hesias_pgdata:

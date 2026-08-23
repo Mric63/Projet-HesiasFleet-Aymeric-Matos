@@ -1,0 +1,14 @@
+# Contexte de build de l'API : on n'envoie au démon Docker que le source.
+**/bin
+**/obj
+**/node_modules
+**/dist
+**/.vs
+**/.vscode
+**/.idea
+**/.git
+**/*.user
+HesiasFleet.Web
+HesiasFleet.Mobile
+HesiasFleet.Desktop
+db
