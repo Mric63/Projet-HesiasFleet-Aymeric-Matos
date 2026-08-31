@@ -1,0 +1,380 @@
+##############################################################################
+# .gitignore - Projet HesiasFleet (Aymeric Matos)
+# A placer a la RACINE du dossier "HesiasFleet-Project Aymeric Matos"
+#
+# Les chemins sans "/" en debut de ligne s'appliquent a TOUS les niveaux,
+# ce qui permet de couvrir HesiasFleet/ et ses sous-projets depuis la racine.
+##############################################################################
+
+
+##############################################################################
+# 1. SECRETS ET CONFIGURATION LOCALE  --  A NE JAMAIS COMMITER
+##############################################################################
+
+# Variables d'environnement
+.env
+.env.*
+!.env.example
+*.env
+
+# Configuration .NET locale (chaines de connexion, cles JWT, mots de passe)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.Local.json
+secrets.json
+
+# Certificats et cles
+*.pfx
+*.p12
+*.key
+*.pem
+*.jks
+*.keystore
+
+# Fichiers de publication contenant potentiellement des identifiants
+*.pubxml
+*.pubxml.user
+*.azurePubxml
+*.publishsettings
+PublishScripts/
+
+
+##############################################################################
+# 2. IDE ET EDITEURS
+##############################################################################
+
+# JetBrains (Rider, IntelliJ, WebStorm, Android Studio)
+.idea/
+*.iml
+*.sln.iml
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.usertasks
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+
+
+##############################################################################
+# 3. BUILD .NET
+##############################################################################
+
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Ll]og/
+[Ll]ogs/
+bld/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+artifacts/
+publish/
+Generated\ Files/
+Generated_Code/
+BenchmarkDotNet.Artifacts/
+MigrationBackup/
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# Fichiers intermediaires
+project.lock.json
+project.fragment.lock.json
+*.ilk
+*.meta
+*.iobj
+*.pch
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.vspscc
+*.vssscc
+*.pidb
+*.svclog
+*.scc
+*.plg
+*.opt
+*.binlog
+*.[Cc]ache
+!?*.[Cc]ache/
+
+
+##############################################################################
+# 4. NUGET
+##############################################################################
+
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+.paket/paket.exe
+paket-files/
+
+
+##############################################################################
+# 5. TESTS ET COUVERTURE DE CODE
+##############################################################################
+
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResult.xml
+nunit-*.xml
+*.VisualState.xml
+test-results/
+coverage*.json
+coverage*.xml
+coverage*.info
+*.coverage
+*.coveragexml
+*.dotCover
+OpenCover/
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+_Chutzpah*
+
+
+##############################################################################
+# 6. NODE / ANGULAR / WEB
+##############################################################################
+
+node_modules/
+dist/
+.angular/
+.sass-cache/
+.npm/
+.yarn/
+.pnp.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bower_components/
+
+
+##############################################################################
+# 7. ELECTRON / DESKTOP
+##############################################################################
+
+hesias-build/
+out/
+**/release/
+app.asar
+*.AppImage
+*.deb
+*.rpm
+*.dmg
+*.app
+*.snap
+
+
+##############################################################################
+# 8. MOBILE (Android / iOS / Flutter / MAUI / React Native)
+##############################################################################
+
+# Android
+.gradle/
+**/android/build/
+**/android/app/build/
+**/android/.gradle/
+**/android/local.properties
+**/android/captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+local.properties
+.cxx/
+
+# iOS / macOS
+**/ios/Pods/
+**/ios/build/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework/
+**/ios/Flutter/App.framework/
+DerivedData/
+*.ipa
+*.xcuserstate
+xcuserdata/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# React Native / Metro
+.expo/
+.metro-health-check*
+
+# .NET MAUI / Xamarin
+.mfractor/
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+
+
+##############################################################################
+# 9. BASES DE DONNEES
+##############################################################################
+
+*.mdf
+*.ldf
+*.ndf
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.bak
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+
+
+##############################################################################
+# 10. BINAIRES ET EXECUTABLES
+#
+# Le sujet demande le CODE SOURCE, pas les binaires : tout ceci est
+# regenerable via `dotnet build` / `npm run build`.
+# Si une DLL tierce doit malgre tout etre versionnee, ajouter une exception :
+#   !libs/MaLibTierce.dll
+##############################################################################
+
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.obj
+*.o
+*.a
+*.lib
+*.msi
+*.msix
+*.msm
+*.msp
+*.cab
+*.msix
+
+
+##############################################################################
+# 11. ARCHIVES DE LIVRAISON
+#
+# Evite de commiter par erreur le zip de rendu dans le repo.
+##############################################################################
+
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+!docs/**/*.zip
+
+
+##############################################################################
+# 12. FICHIERS SYSTEME
+##############################################################################
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon[\r]
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*.pid
+*.seed
+
+
+##############################################################################
+# 13. DIVERS
+##############################################################################
+
+*.log
+*.tlog
+__pycache__/
+*.pyc
+mono_crash.*
+.tye/
+.fake/
+.ionide/
+.localhistory/
+.vshistory/
+healthchecksdb
+FodyWeavers.xsd
+ScaffoldingReadMe.txt
+StyleCopReport.xml
+*.GhostDoc.xml
+*.gpState
+$tf/

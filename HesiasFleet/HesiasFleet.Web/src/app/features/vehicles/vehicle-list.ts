@@ -60,7 +60,7 @@ import { VehicleFormDialog } from './vehicle-form.dialog';
               </ng-container>
 
               <ng-container matColumnDef="mileage">
-                <th mat-header-cell *matHeaderCellDef>Kilométrage</th>
+                <th mat-header-cell *matHeaderCellDef>Kilométrage</th>Q
                 <td mat-cell *matCellDef="let v">{{ v.mileage | number }} km</td>
               </ng-container>
 
