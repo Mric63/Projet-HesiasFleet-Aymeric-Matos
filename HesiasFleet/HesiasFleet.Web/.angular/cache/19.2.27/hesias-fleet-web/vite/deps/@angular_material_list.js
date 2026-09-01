@@ -10,6 +10,9 @@ import {
 } from "./chunk-ZDE37KNW.js";
 import "./chunk-24R74C5I.js";
 import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-3DCKW77F.js";
+import {
   MatRippleModule
 } from "./chunk-V3VKSDEA.js";
 import {
@@ -45,9 +48,6 @@ import {
   coerceNumberProperty
 } from "./chunk-27KESBNM.js";
 import "./chunk-2G2IOVHZ.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-3DCKW77F.js";
 import {
   NgTemplateOutlet
 } from "./chunk-UHD5O56P.js";

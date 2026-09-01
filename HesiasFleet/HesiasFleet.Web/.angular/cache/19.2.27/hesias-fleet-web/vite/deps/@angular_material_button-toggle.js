@@ -5,6 +5,9 @@ import {
   MatPseudoCheckbox
 } from "./chunk-24R74C5I.js";
 import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-3DCKW77F.js";
+import {
   MatRippleModule
 } from "./chunk-V3VKSDEA.js";
 import {
@@ -36,9 +39,6 @@ import "./chunk-27KESBNM.js";
 import {
   Directionality
 } from "./chunk-2G2IOVHZ.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-3DCKW77F.js";
 import "./chunk-UHD5O56P.js";
 import "./chunk-GVSKDZNY.js";
 import {

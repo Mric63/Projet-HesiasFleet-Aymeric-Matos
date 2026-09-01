@@ -8,8 +8,7 @@
     "build": "ng build hesias-fleet-web",
     "watch": "ng build hesias-fleet-web --watch --configuration development",
     "electron:dev": "concurrently \"ng serve\" \"wait-on http://localhost:4200 && cross-env NODE_ENV=development electron electron/main.js\"",
-    "electron:build": "ng build hesias-fleet-web --base-href ./ && electron-builder"
-  },
+    "electron:build": "ng build hesias-fleet-web --configuration electron --base-href ./ && electron-builder"  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.0.0",

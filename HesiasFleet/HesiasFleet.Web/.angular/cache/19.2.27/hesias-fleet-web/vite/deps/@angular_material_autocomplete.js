@@ -13,6 +13,9 @@ import {
 } from "./chunk-2NHET4AW.js";
 import "./chunk-ZDE37KNW.js";
 import "./chunk-24R74C5I.js";
+import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-3DCKW77F.js";
 import "./chunk-V3VKSDEA.js";
 import "./chunk-YT3RIY5C.js";
 import "./chunk-SY2YCB5I.js";
@@ -61,9 +64,6 @@ import {
 import {
   Directionality
 } from "./chunk-2G2IOVHZ.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-3DCKW77F.js";
 import "./chunk-UHD5O56P.js";
 import "./chunk-GVSKDZNY.js";
 import {

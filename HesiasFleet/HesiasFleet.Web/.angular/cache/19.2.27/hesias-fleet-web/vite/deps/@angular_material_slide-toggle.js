@@ -2,6 +2,11 @@ import {
   _MatInternalFormField
 } from "./chunk-YACJ4WAM.js";
 import {
+  CheckboxRequiredValidator,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR
+} from "./chunk-3DCKW77F.js";
+import {
   MatRipple
 } from "./chunk-YT3RIY5C.js";
 import {
@@ -21,11 +26,6 @@ import {
 } from "./chunk-5QAZBKCL.js";
 import "./chunk-27KESBNM.js";
 import "./chunk-2G2IOVHZ.js";
-import {
-  CheckboxRequiredValidator,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from "./chunk-3DCKW77F.js";
 import "./chunk-UHD5O56P.js";
 import "./chunk-GVSKDZNY.js";
 import {

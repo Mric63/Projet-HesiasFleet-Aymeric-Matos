@@ -40,6 +40,10 @@ import { NotificationService } from './core/services/notification.service';
               <mat-icon matListItemIcon>inventory_2</mat-icon>
               <span matListItemTitle>Magasin</span>
             </a>
+            <a mat-list-item routerLink="/users" routerLinkActive="active">
+              <mat-icon matListItemIcon>group</mat-icon>
+              <span matListItemTitle>Utilisateurs</span>
+            </a>
           </mat-nav-list>
 
           <div class="sidenav-footer">Gestion de flotte</div>

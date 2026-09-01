@@ -30,7 +30,13 @@ export const routes: Routes = [
         path: 'parts',
         loadComponent: () =>
           import('./features/parts/part-list').then(m => m.PartListPage)
+      },
+      {
+        path: 'users',
+        loadComponent: () =>
+            import('./features/users/user-list').then(m => m.UserListPage)
       }
+
     ]
   },
   { path: '**', redirectTo: '' }
